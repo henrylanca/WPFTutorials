@@ -13,5 +13,17 @@ namespace HelloWPF
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            MainWindow wnd = new MainWindow();
+            wnd.Title = "Something else";
+
+            //if (e.Args.Length == 1)
+            //    MessageBox.Show("Now Opening File : \n\n" + e.Args[0]);
+            //else
+            //    MessageBox.Show(string.Format("Number of Arguments : {0}", e.Args.Length));
+
+            wnd.Show();
+        }
     }
 }
