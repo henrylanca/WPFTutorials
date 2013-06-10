@@ -29,5 +29,11 @@ namespace HelloWPF
         {
             MessageBox.Show("You clicked me at " + e.GetPosition(this).ToString());
         }
+
+        private void txtName_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            TextBox txtBox = sender as TextBox;
+            txtMail.Text = txtBox.SelectedText;
+        }
     }
 }
