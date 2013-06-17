@@ -23,6 +23,7 @@ namespace HelloWPF
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
 
         private void pnlMainGrid_MouseUp(object sender, MouseButtonEventArgs e)
@@ -34,6 +35,12 @@ namespace HelloWPF
         {
             TextBox txtBox = sender as TextBox;
             txtMail.Text = txtBox.SelectedText;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BindingExpression binding = txtTitle.GetBindingExpression(TextBox.TextProperty);
+            binding.UpdateSource();
         }
     }
 }
