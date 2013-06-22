@@ -8,6 +8,8 @@
         </TextBlock>-->
         
         <StackPanel Margin="10">
+            <ListBox Name="lbUsers" DisplayMemberPath="Name"></ListBox>
+            
             <Label Target="{Binding ElementName=txtName}" >
                 <StackPanel Orientation="Horizontal">
                     <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_green.png" />
@@ -15,6 +17,14 @@
                 </StackPanel>
             </Label>
             <TextBox Name="txtName" SpellCheck.IsEnabled="True" SelectionChanged="txtName_SelectionChanged"></TextBox>
+            
+            <Button Name="btnAddUser" Click="btnAddUser_Click">Add User</Button>
+            <Button Name="btnChangeUser" Click="btnChangeUser_Click">Change User</Button>
+            <Button Name="btnDeleteUser" Click="btnDeleteUser_Click">Delete User</Button>
+                    
+                    
+                    
+                    
 
             <Label Content="_Mail" Target="{Binding ElementName=txtMail}" />
             <TextBox Name="txtMail" />
