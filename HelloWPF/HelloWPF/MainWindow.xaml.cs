@@ -100,4 +100,39 @@ namespace HelloWPF
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }
     }
+
+    public class YesNoToBooleanConverter : IValueConverter
+    {
+
+        #region IValueConverter Members
+
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            switch (value.ToString().ToLower())
+            {
+                case "yes":
+                    return true;
+                case "no":
+                    return false;
+            }
+
+            return false;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            if (value is bool)
+            {
+                if ((bool)value == true)
+                    return "yes";
+                else
+                    return "no";
+
+            }
+
+            return "no";
+        }
+
+        #endregion
+    }
 }
