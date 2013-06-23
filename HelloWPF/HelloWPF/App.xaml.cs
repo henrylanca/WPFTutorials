@@ -15,7 +15,7 @@ namespace HelloWPF
     {
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            MainWindow wnd = new MainWindow();
+            NewWindow wnd = new NewWindow();
             wnd.Title = "Something else";
 
             //if (e.Args.Length == 1)
