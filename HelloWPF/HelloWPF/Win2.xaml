@@ -1,0 +1,40 @@
+﻿<Window x:Class="HelloWPF.Win2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Win2" Height="300" Width="300">
+    <Window.CommandBindings>
+        <CommandBinding Command="New" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Command="New" />
+                <MenuItem Header="_Open" IsCheckable="True"   />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+        </Menu>
+        
+        <TextBox AcceptsReturn="True" Name="txtEditor" DockPanel.Dock="Bottom"></TextBox>
+        
+        <ListView Margin="10" DockPanel.Dock="Bottom" Name="lvUsers">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
+                    <GridViewColumn Header="Mail" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Hyperlink NavigateUri="{Binding Mail}" RequestNavigate="Hyperlink_RequestNavigate">
+                                        <TextBlock Text="{Binding Mail}"></TextBlock>
+                                    </Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
